@@ -12,6 +12,8 @@ class quizApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+          appBar:
+              AppBar( backgroundColor: Colors.black),
           body: Stack(
             fit: StackFit.expand,
             children: [
@@ -22,7 +24,7 @@ class quizApp extends StatelessWidget {
               ),
               // Overlay Image
               Positioned(
-                top: 250,
+                top: 150,
                 left: 75,
                 child: Image.asset(
                   'images/quiz.png',
@@ -34,7 +36,7 @@ class quizApp extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 420),
+                    padding: const EdgeInsets.only(top: 300),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
