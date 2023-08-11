@@ -79,7 +79,7 @@ class loginscreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text("new to quiz app? "),
-                          TextButton(onPressed: () {}, child: Text("Register "))
+                          TextButton(onPressed: () {}, child: Text("Register ",style: TextStyle(color: Colors.green),))
                         ],
                       ),
                     ),
