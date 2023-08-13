@@ -90,31 +90,19 @@ class quizscreen extends StatelessWidget {
                 style: GoogleFonts.cookie(
                     fontSize: 50, fontWeight: FontWeight.bold),
               ),
-             Category(
-                
-                
-              ),
+              Category(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Category(
-                
-                
-              ),
+              Category(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Category(
-                
-                
-              ),
+              Category(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Category(
-                
-                
-              ),
+              Category(),
             ]),
           )),
     );
