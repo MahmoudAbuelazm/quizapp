@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class loginscreen extends StatelessWidget {
   const loginscreen({super.key});
 
@@ -79,11 +80,15 @@ class loginscreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text("new to quiz app? "),
-                          TextButton(onPressed: () {}, child: Text("Register ",style: TextStyle(color: Colors.green),))
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Register ",
+                                style: TextStyle(color: Colors.green),
+                              ))
                         ],
                       ),
                     ),
-                    
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -120,7 +125,7 @@ class loginscreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.03,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spacebetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Checkbox(value: false, onChanged: (value) {}),
                         Text("Remember me "),
