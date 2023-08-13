@@ -131,18 +131,26 @@ class loginscreen extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Checkbox(value: false, onChanged: (value) {}),
-                        Text("Remember me "),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Forgot Password?",
-                              style: TextStyle(color: Colors.green),
-                            ))
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(value: false, onChanged: (value) {}),
+                          Text("Remember me "),
+                            ],
+                          )
+                          ,
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(color: Colors.green),
+                              ))
+                        ],
+                      ),
                     )
                   ],
                 ),

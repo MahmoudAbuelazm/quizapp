@@ -73,7 +73,7 @@ class quizscreen extends StatelessWidget {
                             Text(
                               "What is the capital of France ?",
                               style: GoogleFonts.cookie(
-                                  fontSize: 30, fontWeight: FontWeight.bold),
+                                  fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),

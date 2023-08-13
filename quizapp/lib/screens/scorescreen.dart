@@ -19,7 +19,7 @@ class scorescreen extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 50,
                           fontWeight: FontWeight.bold))),
-              Text("Yasmin",
+              Text("Mahmoud",
                   style: GoogleFonts.lobster(
                       textStyle: TextStyle(
                           color: Colors.purple,
@@ -30,7 +30,7 @@ class scorescreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Your Score is : r / r",
+              Text("Your Score is : 9/10",
                   style: GoogleFonts.lobster(
                       textStyle: TextStyle(
                           color: Colors.black,
