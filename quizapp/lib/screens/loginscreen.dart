@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp/screens/quizscreen.dart';
 
 class loginscreen extends StatelessWidget {
   const loginscreen({super.key});
@@ -90,7 +91,13 @@ class loginscreen extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return quizscreen();
+                  }));
+                
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff4CAF50),
                         shape: RoundedRectangleBorder(

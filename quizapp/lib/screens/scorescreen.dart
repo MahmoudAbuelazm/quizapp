@@ -7,24 +7,62 @@ class scorescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
-        body: Column(
-          children : [
-            Row(
-              children: [
-                Text("Hello ,",style : GoogleFonts.poppins(textStyle: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold))),
-                Text("Yasmin"),
-              ],
-            ),
-            Row(
-              children: [
-                Text("Your Score is : r / r"),
-              ],
-            ),
-            
-          ]
-        ),
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Hello ,",
+                  style: GoogleFonts.lobster(
+                      textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold))),
+              Text("Yasmin",
+                  style: GoogleFonts.lobster(
+                      textStyle: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold))),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Your Score is : r / r",
+                  style: GoogleFonts.lobster(
+                      textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold))),
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 6,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 15, left: 15),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                child: Center(
+                  child: Text("Reset Quiz",
+                      style: GoogleFonts.lobster(
+                          textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 50,
+                              fontWeight: FontWeight.bold)
+                              )
+                              ),
+                )
+                            ),
+          )
+        ]),
       ),
     );
   }
