@@ -120,13 +120,10 @@ class loginscreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.03,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spacebetween,
                       children: [
                         Checkbox(value: false, onChanged: (value) {}),
                         Text("Remember me "),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.07,
-                        ),
                         TextButton(
                             onPressed: () {},
                             child: Text(

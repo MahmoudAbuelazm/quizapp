@@ -9,41 +9,36 @@ class openningscreen extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(backgroundColor: Colors.black),
-          body: Stack(
-            fit: StackFit.expand,
-            children: [
-              // Background Image
-              Image.asset(
-                'images/download.png',
-                fit: BoxFit.cover,
-              ),
-              // Overlay Image
-              Positioned(
-                top: 150,
-                left: 75,
-                child: Image.asset(
-                  'images/quiz.png',
-                  width: 190,
-                  height: 200,
-                ),
-              ),
-
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 300),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('ITI Quiz App',
-                            style: TextStyle(
-                                fontFamily: "Pacifico",
-                                fontSize: 50,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.yellow)),
-                      ],
-                    ),
+          
+          body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration( image: DecorationImage(
+              image: AssetImage("images/download.png"),
+              fit: BoxFit.cover,
+            ),),
+            child: Column
+              (
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 150),
+                  child: Image.asset(
+                    'images/quiz.png',
+                    width: 190,
+                    height: 200,
                   ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Text(
+                    'ITI Quiz App',
+                    style: TextStyle(
+                        fontFamily: "Pacifico",
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.yellow),
+                  ),
+                ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -82,8 +77,10 @@ class openningscreen extends StatelessWidget {
                       ))
                 ],
               ),
-            ],
+            ),
           ),
-        ));
+        )
+    ;
+
   }
 }
