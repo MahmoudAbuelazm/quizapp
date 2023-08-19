@@ -1,39 +1,45 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:quizapp/screens/category_screen.dart';
 import 'package:quizapp/screens/quizscreen.dart';
 
 class loginscreen extends StatelessWidget {
-  const loginscreen({super.key});
+  loginscreen({super.key});
+
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Color(0xff358032),
-          child: Column(
-            children: [
-              Image.asset(
-                "images/pngwing.com.png",
-                width: MediaQuery.of(context).size.width * 0.35,
-                height: MediaQuery.of(context).size.height * 0.35,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.65,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50),
-                  ),
-                  color: Color(0xffEFECEC),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Color(0xff358032),
+        child: Column(
+          children: [
+            Image.asset(
+              "images/pngwing.com.png",
+              width: MediaQuery.of(context).size.width * 0.35,
+              height: MediaQuery.of(context).size.height * 0.30,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
                 ),
+                color: Color(0xffEFECEC),
+              ),
+              child: Form(
+                key: _formkey,
                 child: Column(
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.07,
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Center(
                       child: Text(
@@ -42,15 +48,21 @@ class loginscreen extends StatelessWidget {
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: TextField(
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "username is empty";
+                          } else if (value.length < 8) {
+                            return "username is too short";
+                          } else if (value[0] != value[0].toUpperCase()) {
+                            return "first charachter in username must be capital";
+                          }
+                        },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.email),
-                          hintText: "Email",
+                          prefixIcon: Icon(Icons.person),
+                          hintText: "username",
                           hintStyle: TextStyle(color: Colors.grey),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(100),
@@ -63,7 +75,47 @@ class loginscreen extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: TextField(
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "email is empty";
+                          } else if (!value!.contains('@')) {
+                            return 'email must contain "@"';
+                          }
+                          if (!value.contains('.')) {
+                            return 'email must contain "."';
+                          }
+                          if (!value!.contains('com')) {
+                            return 'email must contain "com"';
+                          }
+                        },
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          hintText: "Email",
+                          hintStyle: TextStyle(color: Colors.grey),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "password is empty";
+                          } else if (value.length < 10) {
+                            return "password is too short";
+                          } else if (!RegExp(
+                                  r'^[a-zA-Z0-9!@#$%^&*(),.?":{}|<> ]+$')
+                              .hasMatch(value)) {
+                            return 'password contains invalid characters';
+                          }
+                        },
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
                           suffixIcon: Icon(Icons.visibility_off),
@@ -92,11 +144,12 @@ class loginscreen extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return quizscreen();
-                  }));
-                
+                        if (_formkey.currentState!.validate()) {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return CategoryScreen();
+                          }));
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xff4CAF50),
@@ -129,7 +182,7 @@ class loginscreen extends StatelessWidget {
                     ),
                     Text("Use Touch ID"),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10),
@@ -139,10 +192,9 @@ class loginscreen extends StatelessWidget {
                           Row(
                             children: [
                               Checkbox(value: false, onChanged: (value) {}),
-                          Text("Remember me "),
+                              Text("Remember me "),
                             ],
-                          )
-                          ,
+                          ),
                           TextButton(
                               onPressed: () {},
                               child: Text(
@@ -154,9 +206,9 @@ class loginscreen extends StatelessWidget {
                     )
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

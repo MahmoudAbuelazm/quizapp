@@ -11,6 +11,7 @@ class quizscreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -58,7 +59,7 @@ class quizscreen extends StatelessWidget {
                             Text(
                               "Question 1",
                               style: GoogleFonts.cookie(
-                                  fontSize: 50,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline),
                             ),
