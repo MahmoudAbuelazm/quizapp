@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/screens/openningscreen.dart';
 
 void main() {
-  runApp(quizApp());
+  runApp(const QuizApp());
 }
 
-class quizApp extends StatelessWidget {
-  const quizApp({super.key});
+class QuizApp extends StatelessWidget {
+  const QuizApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: openningscreen(),
+      home: Openningscreen(),
     );
   }
 }

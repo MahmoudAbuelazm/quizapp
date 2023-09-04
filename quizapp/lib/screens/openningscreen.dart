@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/loginscreen.dart';
 
-class openningscreen extends StatelessWidget {
-  const openningscreen({super.key});
+class Openningscreen extends StatelessWidget {
+  const Openningscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +13,16 @@ class openningscreen extends StatelessWidget {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/download.png"),
-              fit: BoxFit.cover,
+              fit: BoxFit.fitHeight,
             ),
           ),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 150),
+                margin: const EdgeInsets.only(top: 150),
                 child: Image.asset(
                   'images/quiz.png',
                   width: 190,
@@ -57,7 +57,7 @@ class openningscreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return loginscreen();
+                    return LoginScreen();
                   }));
                 },
                 style: ElevatedButton.styleFrom(

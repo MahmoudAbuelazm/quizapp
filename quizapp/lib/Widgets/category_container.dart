@@ -1,39 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizapp/data.dart';
 import 'package:quizapp/screens/quizscreen.dart';
 
 class CategoryContainer extends StatelessWidget {
   final int index;
 
-  CategoryContainer({
-    // super.key,
+  const CategoryContainer({
+    Key? key,
     required this.index,
-  });
-
-  List quizName = ["Sport Test", "History Test", "General Test"];
-  List quizColor = [Colors.blue, Colors.red, Colors.yellow];
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.2,
+      width: MediaQuery.of(context).size.width,
       child: InkWell(
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute<void>(
-              builder: (BuildContext context) => quizscreen(),
+              builder: (BuildContext context) => QuizsSreen(index: index),
             ),
           );
         },
         child: Container(
           decoration: BoxDecoration(
-              color: quizColor[index],
+              color: datamodel[index]["color"],
               border: Border.all(width: 1, color: Colors.black)),
           child: Center(
             child: Text(
-              quizName[index],
+              datamodel[index]["name"],
               style: GoogleFonts.actor(
-                  fontSize: 35, color: Color.fromARGB(255, 0, 0, 0)),
+                  fontSize: 35, color: const Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
         ),

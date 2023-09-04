@@ -1,11 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:quizapp/data.dart';
 import 'package:quizapp/screens/category_screen.dart';
-import 'package:quizapp/screens/quizscreen.dart';
 
-class loginscreen extends StatelessWidget {
-  loginscreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -16,7 +14,7 @@ class loginscreen extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Color(0xff358032),
+        color: const Color(0xff358032),
         child: Column(
           children: [
             Image.asset(
@@ -27,7 +25,7 @@ class loginscreen extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.70,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
                   topRight: Radius.circular(50),
@@ -41,7 +39,7 @@ class loginscreen extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
-                    Center(
+                    const Center(
                       child: Text(
                         "Login",
                         style: TextStyle(
@@ -49,8 +47,10 @@ class loginscreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: TextFormField(
+                        controller: usernamecontroller,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "username is empty";
@@ -59,11 +59,12 @@ class loginscreen extends StatelessWidget {
                           } else if (value[0] != value[0].toUpperCase()) {
                             return "first charachter in username must be capital";
                           }
+                          return null;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.person),
                           hintText: "username",
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: const TextStyle(color: Colors.grey),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(100),
                           ),
@@ -79,20 +80,21 @@ class loginscreen extends StatelessWidget {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "email is empty";
-                          } else if (!value!.contains('@')) {
+                          } else if (!value.contains('@')) {
                             return 'email must contain "@"';
                           }
                           if (!value.contains('.')) {
                             return 'email must contain "."';
                           }
-                          if (!value!.contains('com')) {
+                          if (!value.contains('com')) {
                             return 'email must contain "com"';
                           }
+                          return null;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.email),
+                          prefixIcon: const Icon(Icons.email),
                           hintText: "Email",
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: const TextStyle(color: Colors.grey),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(100),
                           ),
@@ -115,12 +117,13 @@ class loginscreen extends StatelessWidget {
                               .hasMatch(value)) {
                             return 'password contains invalid characters';
                           }
+                          return null;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
-                          suffixIcon: Icon(Icons.visibility_off),
+                          prefixIcon: const Icon(Icons.lock),
+                          suffixIcon: const Icon(Icons.visibility_off),
                           hintText: "password",
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: const TextStyle(color: Colors.grey),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(100),
                           ),
@@ -132,10 +135,10 @@ class loginscreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text("new to quiz app? "),
+                          const Text("new to quiz app? "),
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "Register ",
                                 style: TextStyle(color: Colors.green),
                               ))
@@ -152,7 +155,7 @@ class loginscreen extends StatelessWidget {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff4CAF50),
+                        backgroundColor: const Color(0xff4CAF50),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -160,8 +163,8 @@ class loginscreen extends StatelessWidget {
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.05,
                         width: MediaQuery.of(context).size.width * 0.4,
-                        color: Color(0xff4CAF50),
-                        child: Center(
+                        color: const Color(0xff4CAF50),
+                        child: const Center(
                           child: Text(
                             'Login',
                             style: TextStyle(
@@ -175,12 +178,12 @@ class loginscreen extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.fingerprint,
                       color: Colors.blue,
                       size: 60,
                     ),
-                    Text("Use Touch ID"),
+                    const Text("Use Touch ID"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
@@ -192,12 +195,12 @@ class loginscreen extends StatelessWidget {
                           Row(
                             children: [
                               Checkbox(value: false, onChanged: (value) {}),
-                              Text("Remember me "),
+                              const Text("Remember me "),
                             ],
                           ),
                           TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "Forgot Password?",
                                 style: TextStyle(color: Colors.green),
                               ))
